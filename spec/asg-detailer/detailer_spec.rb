@@ -5,7 +5,7 @@ describe AsgDetailer::Detailer do
     @asg_name = 'test-asg'
     @lc_name = 'test-lc'
     @lb_name = 'test-lb'
-    @instance_ids = ['i-00000000000000000', 'i-00000000000000001', 'i-00000000000000002']
+    @instance_ids = ['i-00000000000000000', 'i-00000000000000001', 'i-00000000000000002', 'i-00000000000000003']
     setup_aws_stubs(@asg_name, @lc_name, @lb_name, @instance_ids)
     @det = Detailer.new(@asg_name)
   end
@@ -34,7 +34,8 @@ Load Balancer: #{@lb_name}
   Instances:
     InstanceID: i-00000000000000000 : 10.0.0.1 : InService
     InstanceID: i-00000000000000001 : 10.0.0.99 : State is N/A (Not in LB)
-    InstanceID: i-00000000000000002 : 10.0.0.199 : OutOfService\n"
+    InstanceID: i-00000000000000002 : 10.0.0.199 : OutOfService
+    InstanceID: i-00000000000000003 : IP is N/A : State is N/A (Not in LB)\n"
 
     setup_aws_stubs(@asg_name, @lc_name, @lb_name, @instance_ids)
     expect { @det.run }.to output(asg_output).to_stdout

@@ -41,6 +41,14 @@ def setup_aws_stubs(asg_name, lc_name, lb_name, instance_ids)
         health_status: "Healthy",
         launch_configuration_name: lc_name,
         protected_from_scale_in: false
+      },
+      'i-00000000000000003': {
+        instance_id: 'i-00000000000000003',
+        availability_zone: "us-west-2b",
+        lifecycle_state: "InService",
+        health_status: "UnHealthy",
+        launch_configuration_name: lc_name,
+        protected_from_scale_in: false
       }
     },
     instances_detail: {
@@ -55,6 +63,10 @@ def setup_aws_stubs(asg_name, lc_name, lb_name, instance_ids)
       'i-00000000000000002': {
         instance_id: 'i-00000000000000002',
         private_ip_address: '10.0.0.199'
+      },
+      'i-00000000000000003': {
+        instance_id: 'i-00000000000000003',
+        private_ip_address: ''
       }
     }
   }
