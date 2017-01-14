@@ -72,7 +72,7 @@ module AsgDetailer
 
         resp[:reservations].each do |r|
           r[:instances].each do |i|
-            ip = i[:private_ip_address]
+            ip = i[:private_ip_address].empty? ? 'IP is N/A' : i[:private_ip_address]
             health = instance_health[i[:instance_id]] ? instance_health[i[:instance_id]] : "State is N/A (Not in LB)"
             puts "    InstanceID: #{i[:instance_id]} : #{ip} : #{health}"
           end
