@@ -54,6 +54,13 @@ describe AsgDetailer::Infra do
       .to eq(@instances_hash[:reservations].first[:instances].first[:private_ip_address])
     expect(resp[:reservations].first[:instances].first[:instance_id])
       .to eq(@instances_hash[:reservations].first[:instances].first[:instance_id])
-    #
+  end
+
+  it 'raises error for bad instance id' do
+    Aws.config[:ec2] = {
+      stub_responses: {describe_instances: 'InvalidInstanceIDNotFound'}
+    }
+    expect { @infra.query_instances(['i-11111111']) }
+      .to raise_error(Aws::EC2::Errors::InvalidInstanceIDNotFound)
   end
 end
