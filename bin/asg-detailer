@@ -1,12 +1,6 @@
 #!/usr/bin/env ruby
 
-require "bundler/setup"
-require "asg-detailer"
+require 'bundler/setup'
+require 'asg-detailer'
 
-if ARGV.count < 1
-        puts "Usage: example <asg name>"
-        exit 1
-end
-
-name = ARGV[0]
-Detailer.new(name).run
+AsgDetailer::CLI.new(ARGV)
