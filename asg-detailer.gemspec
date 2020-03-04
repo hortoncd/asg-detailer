@@ -18,9 +18,11 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^bin/asg-detailer}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
 
-  spec.add_development_dependency 'bundler', '~> 1.12'
+  spec.add_development_dependency 'bundler', '~> 2'
   spec.add_development_dependency 'rake', '~> 12.3.3'
-  spec.add_development_dependency 'rspec', '~> 3.0'
+  spec.add_development_dependency 'rspec', '~> 3'
   spec.add_development_dependency 'simplecov', '~> 0.12', '>= 0.12.0'
-  spec.add_dependency 'aws-sdk', '~> 2.6', '>= 2.6.0'
+  spec.add_dependency 'aws-sdk-ec2', '~> 1'
+  spec.add_dependency 'aws-sdk-elasticloadbalancing', '~> 1'
+  spec.add_dependency 'aws-sdk-autoscaling', '~> 1'
 end

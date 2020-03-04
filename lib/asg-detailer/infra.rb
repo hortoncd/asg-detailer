@@ -1,4 +1,6 @@
-require 'aws-sdk'
+require 'aws-sdk-ec2'
+require 'aws-sdk-elasticloadbalancing'
+require 'aws-sdk-autoscaling'
 
 module AsgDetailer
   class Infra
