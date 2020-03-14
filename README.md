@@ -1,5 +1,7 @@
 # AsgDetailer
 
+![](https://github.com/hortoncd/asg-detailer/workflows/ruby/badge.svg)
+
 I found myself wanting to be able to quickly see what a typical AWS ASG and ELB setup looked like without poking away at the interface or needing to use multiple command-line tools.  This is a small gem to detail some of the basics of that style setup.
 
 ## Installation
